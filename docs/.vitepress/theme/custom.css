@@ -1,0 +1,86 @@
+:root {
+  --vp-home-hero-name-color: #38bdf8;
+  --vp-home-hero-name-background: linear-gradient(120deg, #38bdf8 30%, #6366f1);
+  --vp-home-hero-image-background-image: radial-gradient(circle at center, rgba(56, 189, 248, 0.25), rgba(99, 102, 241, 0.08));
+  --vp-home-hero-image-filter: blur(36px);
+}
+
+.VPHome {
+  position: relative;
+  overflow: hidden;
+}
+
+.VPHome::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.2));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.VPHero,
+.VPFeatures {
+  position: relative;
+  z-index: 1;
+}
+
+.VPHero .name,
+.VPHero .text,
+.VPHero .tagline {
+  text-align: left;
+}
+
+.VPHero .name {
+  font-size: 56px;
+  line-height: 1.05;
+}
+
+.VPHero .text {
+  font-size: 46px;
+  line-height: 1.1;
+}
+
+.VPHero .tagline {
+  max-width: 760px;
+  font-size: 20px;
+}
+
+.VPHero .actions {
+  gap: 12px;
+}
+
+.VPHero .image {
+  border-radius: 24px;
+  padding: 20px;
+}
+
+.VPFeature {
+  border: 1px solid rgba(56, 189, 248, 0.14);
+  border-radius: 20px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.VPFeature:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.08);
+}
+
+@media (max-width: 768px) {
+  .VPHero .name {
+    font-size: 36px;
+  }
+
+  .VPHero .text {
+    font-size: 32px;
+  }
+
+  .VPHero .tagline {
+    font-size: 16px;
+  }
+}
