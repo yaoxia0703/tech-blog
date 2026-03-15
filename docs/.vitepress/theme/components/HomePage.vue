@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { VPLink } from 'vitepress/theme'
 
 type Locale = 'en' | 'ja'
 
@@ -132,12 +133,14 @@ const content = computed(() => {
           </p>
 
           <div class="hero-actions">
-            <a :href="content.primaryLink" class="btn btn-primary">
+            <VPLink :href="content.primaryLink" class="btn btn-primary">
               {{ content.primaryButton }}
-            </a>
-            <a :href="content.secondaryLink" class="btn btn-secondary">
+            </VPLink>
+
+            <VPLink :href="content.secondaryLink" class="btn btn-secondary">
               {{ content.secondaryButton }}
-            </a>
+            </VPLink>
+
             <a
               :href="content.githubLink"
               class="btn btn-secondary"
@@ -181,7 +184,7 @@ const content = computed(() => {
       </div>
 
       <div class="featured-list">
-        <a
+        <VPLink
           v-for="item in content.featuredItems"
           :key="item.title"
           :href="item.link"
@@ -192,7 +195,7 @@ const content = computed(() => {
             <p>{{ item.description }}</p>
           </div>
           <span class="featured-arrow">→</span>
-        </a>
+        </VPLink>
       </div>
     </section>
   </div>
